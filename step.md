@@ -6,16 +6,16 @@ Docker
 
 
 - 拉取镜像
-docker pull weekndchina/datax
+</br> docker pull weekndchina/datax
 
 - 运行镜像
-docker run -u root --name datax -it datax:latest /bin/bash
+</br> docker run -u root --name datax -it datax:latest /bin/bash
 
 - 克隆工程
-git clone https://github.com/weekndchina/datax.git xjobs
+</br> git clone https://github.com/weekndchina/datax.git xjobs
 
 - 运行脚本完成自动化部署
-sh xjobs/autodeploymen.sh
+</br> sh xjob</br> s/autodeploymen.sh
 
 - 测试结果
 Sucess！成功
