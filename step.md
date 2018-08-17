@@ -15,9 +15,9 @@ Docker
 </br> git clone https://github.com/weekndchina/datax.git xjobs
 
 - 运行脚本完成自动化部署
-</br> sh xjob</br> s/autodeploymen.sh
+</br> sh xjobs/autodeploymen.sh
 
 - 测试结果
-Sucess！成功
-Or
-Failed！失败
+</br>Sucess！成功
+</br>Or
+</br>Failed！失败
