@@ -38,7 +38,7 @@
 
 ## 日志
 - **查看日志**
-more /root/datax.log
+</br>more /root/datax.log
 - **格式**
 </br>Job Name    :抽取作业名称
 </br>Job start at:作业开始时间
