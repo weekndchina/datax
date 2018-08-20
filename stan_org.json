@@ -17,17 +17,17 @@
                             {
                                 "querySql": [
                                     "select '2' as client_tp,
-											                      t.mid as busi_reg_no,
-										                        t.mer_name as ctnm,
-										                       	t.mer_contact as linkman,
-											                      t.mer_phone as linktel,
-											                      '2H' as ctvc,
-										                       	t.person_name as crnm,
-											                      decode(t.person_no_type, '1', '11', '2', '14') as crit,
-											                      t.person_no as crid,
-										                        substr(t.mer_st_date,1,4)||'-'||substr(t.mer_st_date,5,2)||'-'||substr(t.mer_st_date,7,2) as rgdt,
-										                        t.mcc as indu_code
-									                     from TBL_CORE_MERCHANT t where mid not like '1%'"
+					t.mid as busi_reg_no,
+					t.mer_name as ctnm,
+					t.mer_contact as linkman,
+					t.mer_phone as linktel,
+					'2H' as ctvc,
+					t.person_name as crnm,
+					decode(t.person_no_type, '1', '11', '2', '14') as crit,
+					t.person_no as crid,
+					substr(t.mer_st_date,1,4)||'-'||substr(t.mer_st_date,5,2)||'-'||substr(t.mer_st_date,7,2) as rgdt,
+					t.mcc as indu_code
+				from TBL_CORE_MERCHANT t where mid not like '1%'"
                                 ],
                                 "jdbcUrl": [
                                     "jdbc:oracle:thin:@180.168.110.85:3307:prod1"
@@ -42,16 +42,16 @@
                     "parameter": {
                         "column": [
                                     'client_tp',
-									                  'busi_reg_no',
-									                  'ctnm',
-									                  'linkman',
-									                  'linktel',
-									                  'ctvc',
-								                  	'crnm',
-								                  	'crit',
-								                  	'crid',
-									                  'rgdt',
-								                  	'indu_code'
+				'busi_reg_no',
+				'ctnm',
+				'linkman',
+				'linktel',
+				 'ctvc',
+				'crnm',
+				'crit',
+				'crid',
+				'rgdt',
+				'indu_code'
                         ],
                         "writeMode": "insert",
 						 "preSql": [
