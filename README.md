@@ -1,6 +1,6 @@
 # datax
 ## 表映射关系表
-- stan_org(机构商户信息)
+- *stan_org*(机构商户信息)
 </br>源表:tbl_core_merchant
 </br>目标表:load_org
 </br>抽取方式:FULL
