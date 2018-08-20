@@ -1,1 +1,65 @@
-
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 5
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "oraclereader",
+                    "parameter": {
+                        "username": "ylpospprod",
+                        "password": "Oracle1234!",
+                        "where": "",
+                        "connection": [
+                            {
+                                "querySql": [
+                                    "select '2' as client_tp,
+                                             t.mid as busi_reg_no,
+                                             t.mer_name as ctnm,
+                                             '2H' as ctvc,
+                                             substr(t.mer_st_date, 1, 4) || '-' || substr(t.mer_st_date, 5, 2) || '-' ||substr(t.mer_st_date, 7, 2) as rgdt,
+                                             t.mcc as indu_code
+                                      from TBL_CORE_MERCHANT t
+                                            where t.mid like '1%'"
+                                    ],
+                                "jdbcUrl": [
+                                    "jdbc:oracle:thin:@ip:3307:prod1"
+                                ]
+                            }
+                        ]
+                    }
+                },
+              
+          "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "column": [
+                                "client_tp",
+                                "busi_reg_no",
+                                "ctnm",
+                                "ctvc",
+                                "rgdt",
+                                "indu_code",
+                                   ],
+                        "writeMode": "insert",
+						 "preSql": [
+								"TRUNCATE TABLE lts.load_person"
+								],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:mysql://ip:3306/lts",
+                                "table": ["load_person"]
+                            }
+                        ],
+                        "password": "zeus",
+                        "username": "zeus"
+                    }
+                }
+            
+            }
+        ]
+    }
+}
