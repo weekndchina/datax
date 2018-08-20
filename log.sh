@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source /etc/profile
+
 if [ $# -ne 1 ]
 then
     echo "Param error !"
