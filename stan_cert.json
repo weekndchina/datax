@@ -1,0 +1,71 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 5
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "oraclereader",
+                    "parameter": {
+                        "username": "ylpospprod",
+                        "password": "Oracle1234!",
+                        "where": "",
+                        "connection": [
+                            {
+                                "querySql": [
+                                    "select inst_mer_id as CTIF_ID,
+                                    '2' AS CTIF_TP,
+                                    DECODE(mer_id_TYPE, '01', '11', '02', '14') AS CITP,
+                                    mer_id_no as CTID,
+                                    to_date('','yyyy-mm-dd') as CTID_EDT
+                                    FROM qrc_mer_base_info
+                                    where inst_mer_id like '1%'
+                                    union all
+                                    SELECT T.MID AS CTIF_ID,
+                                    '2' AS CTIF_TP,
+                                    DECODE(T.PERSON_NO_TYPE, '1', '11', '2', '14') AS CITP,
+                                    T.PERSON_NO AS CTID,
+                                    TO_DATE(T.PERSON_NO_EXPIRE_DATE, 'YYYY-MM-DD') AS CTID_EDT
+                                    FROM TBL_CORE_MERCHANT T
+                                    where mid not like '1%'"
+                                    ],
+                                "jdbcUrl": [
+                                    "jdbc:oracle:thin:@180.168.110.85:3307:prod1"
+                                ]
+                            }
+                        ]
+                    }
+                },
+              
+          "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "column": [
+                                   "CTIF_ID",
+                                   "CTIF_TP",
+                                   "CITP",
+                                   "CTID",
+                                   "CTID_EDT"
+                                   ],
+                        "writeMode": "insert",
+						 "preSql": [
+								"TRUNCATE TABLE lts.load_cert"
+								],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:mysql://172.16.1.51:3306/lts",
+                                "table": ["load_cert"]
+                            }
+                        ],
+                        "password": "zeus",
+                        "username": "zeus"
+                    }
+                }
+            
+            }
+        ]
+    }
+}
