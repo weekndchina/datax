@@ -1,1 +1,61 @@
 
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 5
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "oraclereader",
+                    "parameter": {
+                        "username": "ylpospprod",
+                        "password": "Oracle1234!",
+                        "where": "",
+                        "connection": [
+                            {
+                                "querySql": [
+                                    "
+                                    select t.mid as ctif_id,
+                                    '22' as tel_tp,
+                                     t.mer_phone as tel
+                                    from TBL_CORE_MERCHANT t
+                                    "
+                                    ],
+                                "jdbcUrl": [
+                                    "jdbc:oracle:thin:@ip:3307:prod1"
+                                ]
+                            }
+                        ]
+                    }
+                },
+              
+          "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "column": [
+                                   "ctif_id",
+                                   "tel_tp",
+                                   "tel"
+                                   ],
+                        "writeMode": "insert",
+						 "preSql": [
+								"TRUNCATE TABLE lts.load_tel"
+								],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:mysql://ip:3306/lts",
+                                "table": ["load_tel"]
+                            }
+                        ],
+                        "password": "zeus",
+                        "username": "zeus"
+                    }
+                }
+            
+            }
+        ]
+    }
+}
