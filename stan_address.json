@@ -1,0 +1,62 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 5
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "oraclereader",
+                    "parameter": {
+                        "username": "ylpospprod",
+                        "password": "Oracle1234!",
+                        "where": "",
+                        "connection": [
+                            {
+                                "querySql": [
+                                    "select t.mid as ctif_id, '22' as address_tp, to_char(t.address) as address
+                                      from TBL_CORE_MERCHANT t
+                                      where mid not like '1%'
+                                      union all
+                                      select inst_mer_id as ctif_id, '22' as address_tp, mer_address as address
+                                      from qrc_mer_base_info
+                                      where inst_mer_id like '1%'
+                                   "
+                                    ],
+                                "jdbcUrl": [
+                                    "jdbc:oracle:thin:@ip:3307:prod1"
+                                ]
+                            }
+                        ]
+                    }
+                },
+              
+          "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "column": [
+                                  "ctif_id",
+                                  "address_tp",
+                                  "address",
+                                   ],
+                        "writeMode": "insert",
+						 "preSql": [
+								"TRUNCATE TABLE lts.load_address"
+								],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:mysql://ip:3306/lts",
+                                "table": ["load_address"]
+                            }
+                        ],
+                        "password": "zeus",
+                        "username": "zeus"
+                    }
+                }
+            
+            }
+        ]
+    }
+}
