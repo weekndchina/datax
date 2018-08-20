@@ -30,7 +30,7 @@
 				from TBL_CORE_MERCHANT t where mid not like '1%'"
                                 ],
                                 "jdbcUrl": [
-                                    "jdbc:oracle:thin:@180.168.110.85:3307:prod1"
+                                    "jdbc:oracle:thin:@ip:3307:prod1"
                                 ]
                             }
                         ]
@@ -59,7 +59,7 @@
 								],
                         "connection": [
                             {
-                                "jdbcUrl": "jdbc:mysql://172.16.1.51:3306/lts",
+                                "jdbcUrl": "jdbc:mysql://ip:3306/lts",
                                 "table": ["load_org"]
                             }
                         ],
