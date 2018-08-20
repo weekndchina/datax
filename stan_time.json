@@ -36,9 +36,6 @@
                                    "data_dt"
                                    ],
                         "writeMode": "insert",
-						 "preSql": [
-								"TRUNCATE TABLE zeusdb.etl_source_bs"
-								],
                         "connection": [
                             {
                                 "jdbcUrl": "jdbc:mysql://ip:3306/zeusdb",
