@@ -36,3 +36,13 @@
 </br>抽取方式:FULL
 </br>抽取条件:mid like '1%'
 
+## 日志
+- **查看日志**
+more /root/datax.log
+- **格式**
+</br>Job Name    :抽取作业名称
+</br>Job start at:作业开始时间
+</br>Job end at  :作业结束时间
+</br>Cost        :ETL抽取消耗时长
+</br>Result      :ETL Job执行结果
+
