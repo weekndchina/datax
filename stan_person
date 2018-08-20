@@ -42,12 +42,12 @@
                                 "ctnm",
                                 "ctvc",
                                 "rgdt",
-                                "indu_code",
+                                "indu_code"
                                    ],
                         "writeMode": "insert",
-						 "preSql": [
-								"TRUNCATE TABLE lts.load_person"
-								],
+			"preSql": [
+				"TRUNCATE TABLE lts.load_person"
+				  ],
                         "connection": [
                             {
                                 "jdbcUrl": "jdbc:mysql://ip:3306/lts",
