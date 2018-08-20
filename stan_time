@@ -1,1 +1,56 @@
 
+{
+    "job": {
+        "setting": {
+            "speed": {
+                "channel": 5
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "oraclereader",
+                    "parameter": {
+                        "username": "ylpospprod",
+                        "password": "Oracle1234!",
+                        "where": "",
+                        "connection": [
+                            {
+                                "querySql": [
+                                    "
+                                    select TO_CHAR(SYSDATE-1, 'YYYY-MM-DD') as data_dt from dual
+                                    "
+                                    ],
+                                "jdbcUrl": [
+                                    "jdbc:oracle:thin:@ip:3307:prod1"
+                                ]
+                            }
+                        ]
+                    }
+                },
+              
+          "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "column": [
+                                   "data_dt"
+                                   ],
+                        "writeMode": "insert",
+						 "preSql": [
+								"TRUNCATE TABLE zeusdb.etl_source_bs"
+								],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:mysql://ip:3306/zeusdb",
+                                "table": ["etl_source_bs"]
+                            }
+                        ],
+                        "password": "zeus",
+                        "username": "zeus"
+                    }
+                }
+            
+            }
+        ]
+    }
+}
