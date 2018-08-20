@@ -60,7 +60,7 @@ AND T.ISSUER_CODE NOT IN ('8800000001', '8800000002') and msg_type <> '0620'
 "
                                 ],
                                 "jdbcUrl": [
-                                    "jdbc:oracle:thin:@180.168.110.85:3307:prod1"
+                                    "jdbc:oracle:thin:@ip:3307:prod1"
                                 ]
                             }
                         ]
@@ -96,7 +96,7 @@ AND T.ISSUER_CODE NOT IN ('8800000001', '8800000002') and msg_type <> '0620'
                         "writeMode": "insert",
                         "connection": [
                             {
-                                "jdbcUrl": "jdbc:mysql://140.207.82.189:8995/lts",
+                                "jdbcUrl": "jdbc:mysql://ip:8995/lts",
                                 "table": ["load_stif"]
                             }
                         ],
